@@ -5,7 +5,7 @@ import { TextInput } from "react-native-gesture-handler";
 export default function LoginScreen() {
   return (
     <ThemedView style={styles.container}>
-      <Text style={styles.title}>Contato</Text>
+      <Text style={styles.title}>Login</Text>
       <TextInput 
         style={styles.input}
       />
@@ -24,7 +24,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F2F2',
+    backgroundColor: '#f2f2f2',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 24,
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
+    fontFamily: 'verdade',
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 24,
