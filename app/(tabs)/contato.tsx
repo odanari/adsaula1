@@ -11,7 +11,7 @@ export default function LoginScreen() {
       />
 
       <TextInput
-        style={styles.input}
+        style={styles.input} secureTextEntry={true}
       />
       <TouchableOpacity style={styles.button}>
         <Text>Confirmar</Text>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: 'verdade',
+    fontFamily: 'verdana',
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 24,
