@@ -5,7 +5,6 @@ import { TextInput } from "react-native-gesture-handler";
 import Toast from "react-native-toast-message";
 
 export function Contato() {
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [usuario, setUsuario] = useState('');
 
