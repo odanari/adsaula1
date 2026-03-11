@@ -9,7 +9,7 @@ export function Contato() {
   const [usuario, setUsuario] = useState('');
 
   const validaLogin = () => {
-    if(usuario === 'admin' && password == 'admin') {
+    if(usuario === 'admin' && password === 'admin') {
       alert('sucesso!');
       Toast.show({
         type: 'success',
@@ -91,7 +91,7 @@ export default function LoginScreen() {
       <TouchableOpacity style={styles.button} onPress={validaLogin}>
         <Text>Confirmar</Text>
       </TouchableOpacity>
-
+    <Toast />
     </ThemedView>
   );
 }
