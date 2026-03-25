@@ -1,8 +1,44 @@
 import { ThemedView } from "@/components/themed-view";
 import { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Toast from "react-native-toast-message";
+import { supabase } from '../lib/supabase';
+
+function Auth() {
+  const [email, setUsuario] = useState('')
+  const [password, setSenha] = useState('')
+  const [loading, setLoading] = useState(false)
+  
+async function signInWithEmail() {
+  setLoading(true)
+  const { error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password,
+  })
+  if (error) {
+    setUsuario('');
+    setSenha('');
+    Alert.alert(error.message);
+  }
+  setLoading(false)
+}
+}
+
+async function signUpWithEmail(email: string, password: string) {
+  const [loading, setLoading] = useState(false);
+  setLoading(true);
+  const {
+    data: { session },
+    error,
+  } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+  });
+  if (error) Alert.alert(error.message);
+  if (!session) Alert.alert('Please check your inbox for usuario verification!');
+  setLoading(false);
+};
 
 export function Contato() {
   const [password, setPassword] = useState('');
