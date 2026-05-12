@@ -34,7 +34,8 @@ export default function Consultar(){
     async function excluirAluno(id: number){
         Toast.show({
             type: 'success',
-            text1: 'Aluno excluído com sucesso!'
+            text1: 'Aluno excluído com sucesso!',
+            text2: 'sucesso! ' + id
         });
     }
 //alteração
