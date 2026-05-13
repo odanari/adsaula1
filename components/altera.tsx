@@ -33,6 +33,11 @@ export default function Altera() {
 
         const { data, error } = await supabase
             .from('alunos')
+            .update({
+                nome: nome,
+                idade: idade,
+                email: email
+            })
             .select()
             .eq('id', id)
             .single()
