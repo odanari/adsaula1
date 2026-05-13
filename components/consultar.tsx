@@ -32,11 +32,25 @@ export default function Consultar(){
     }
 
     async function excluirAluno(id: number){
-        Toast.show({
-            type: 'success',
-            text1: 'Aluno excluído com sucesso!',
-            text2: 'sucesso! ' + id
-        });
+        const { error } = await supabase
+        .from('alunos')
+        .delete()
+        .eq('id', id);
+        if(error){
+            Toast.show({
+                type: 'error',
+                text1: 'Erro! ' + id,
+                text2: 'Não foi possível excluir o aluno.'
+            });
+            return;
+        }else{
+            Toast.show({
+                type: 'success',
+                text1: 'sucesso! ' + id,
+                text2: 'Aluno excluído com sucesso!'
+            });
+            carregarAlunos();
+        }       
     }
 //alteração
     async function alterarAluno(id: number){
@@ -44,7 +58,7 @@ export default function Consultar(){
             type: 'success',
             text1: 'Aluno alterado com sucesso!'
         });
-        router.push(`/(tabs)/cadastrar`);
+        router.push({pathname:'/(tabs)/alterar', params: {id}});
     }
 
     return(
